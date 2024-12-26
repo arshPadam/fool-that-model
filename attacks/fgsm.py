@@ -7,17 +7,6 @@ class FGSMAttack:
         self.epsilon = epsilon
 
     def generate(self, model, image, label):
-        """
-        Generate adversarial example using FGSM.
-
-        Args:
-        - model: The pre-trained model.
-        - image: The input image (Tensor).
-        - label: The correct label (Tensor).
-
-        Returns:
-        - adversarial_image: The generated adversarial image.
-        """
         # Make the image require gradients
         image.requires_grad = True
 
@@ -36,8 +25,5 @@ class FGSMAttack:
 
         # Create the adversarial image by adding the perturbation
         adversarial_image = image + self.epsilon * gradient.sign()
-
-        # Ensure the adversarial image is still within the valid range [0, 1]
-        adversarial_image = torch.clamp(adversarial_image, 0, 1)
 
         return adversarial_image
