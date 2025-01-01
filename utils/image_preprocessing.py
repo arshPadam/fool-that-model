@@ -3,6 +3,7 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import matplotlib.pyplot as plt
+import numpy as np
 
 def load_and_preprocess_image(image_path):
     try:
@@ -24,11 +25,6 @@ def load_and_preprocess_image(image_path):
     return image_tensor
 
 
-import torch
-import matplotlib.pyplot as plt
-from PIL import Image
-import numpy as np
-
 def denormalize_and_save_image(image_tensor, save_path):
     # Remove the batch dimension
     image_tensor = image_tensor.squeeze(0)  # Shape: [3, H, W]
@@ -36,14 +32,10 @@ def denormalize_and_save_image(image_tensor, save_path):
     # Convert to HWC format (Height, Width, Channels)
     image_tensor = image_tensor.permute(1, 2, 0)
     
-    # Denormalize the image using the ImageNet mean and std
-    mean = torch.tensor([0.485, 0.456, 0.406])
-    std = torch.tensor([0.229, 0.224, 0.225])
-    
-    image_tensor = image_tensor * std + mean
-    
-    # Clip the values to ensure they are in the valid range [0, 1]
-    image_tensor = torch.clamp(image_tensor, 0, 1)
+    inv_normalize = transforms.Compose([
+        transforms.Normalize(mean=[-0.485, -0.456, -0.406], std=[1/0.229, 1/0.224, 1/0.225])
+    ])
+    image_tensor = inv_normalize(image_tensor[0]).clamp(0, 1)
     
     # Convert to numpy array
     image = image_tensor.detach().numpy()
