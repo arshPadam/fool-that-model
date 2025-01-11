@@ -21,7 +21,7 @@ def main():
     model = load_model(model_name)
     
     # Step 2: Load and preprocess the image
-    image_path = "cat.jpg"  # Path to the image
+    image_path = "lion.jpg"  # Path to the image
     image_tensor = load_and_preprocess_image(image_path)
     
     if image_tensor is None:  # If the image could not be loaded, exit early
@@ -35,9 +35,6 @@ def main():
     if(str == "fgsm"):
         fgsm_attack = FGSMAttack(epsilon=0.1)
         adversarial_image_tensor = fgsm_attack.generate(model, image_tensor, torch.tensor([predicted_label]))       
-    elif(str == "deepfool"):
-        deepFool_attack = DeepFool(model)
-        adversarial_image_tensor = deepFool_attack.generate(image_tensor, predicted_label)
     elif(str == "ead"):
         adversarial_image_tensor, _ = ead_attack(model, image_tensor, torch.tensor([predicted_label]), epsilon=0.1, max_iter=100, lambda_1=0.1, lambda_2=0.1)
     
