@@ -12,7 +12,6 @@ from utils.image_preprocessing import load_and_preprocess_image
 from utils.image_preprocessing import denormalize_and_save_image
 
 from attacks.fgsm import FGSMAttack
-from attacks.deepfool import DeepFool
 from attacks.ead import ead_attack
 from models.classes.class_finder import class_to_label
 
@@ -31,7 +30,7 @@ def main():
     # Step 3: Get a new label (predicted class) using the get_new_label function
     predicted_label = get_label(model, image_tensor)
     adversarial_image_tensor = [0]
-    str = "deepfool"
+    str = "fgsm"
     
     if(str == "fgsm"):
         fgsm_attack = FGSMAttack(epsilon=0.1)
