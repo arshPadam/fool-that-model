@@ -8,11 +8,11 @@ Here is an example of an input image and the resulting adversarial image generat
 
 **Input Image:**
 
-![Input Image](https://github.com/arshPadam/fool-that-model/raw/main/input_images/input.jpg)
+![Input Image](https://github.com/arshPadam/fool-that-model/blob/master/images/input_images/input.jpg)
 
 **Adversarial Image:**
 
-![Adversarial Image](https://github.com/arshPadam/fool-that-model/raw/main/adversarial/output.jpg)
+![Adversarial Image](https://github.com/arshPadam/fool-that-model/blob/master/images/adversarial_images/output.jpg)
 
 
 ## Features
