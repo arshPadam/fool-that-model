@@ -6,11 +6,11 @@ Fool That Model is an adversarial attack application designed to demonstrate how
 
 Here is an example of an input image and the resulting adversarial image generated using the FGSM attack:
 
-**Input Image:**
+**Input Image:** Classified as Lion 
 
 ![Input Image](https://github.com/arshPadam/fool-that-model/blob/master/images/input_images/input.jpg)
 
-**Adversarial Image:**
+**Adversarial Image:**Classified as papillon
 
 ![Adversarial Image](https://github.com/arshPadam/fool-that-model/blob/master/images/adversarial_images/output.jpg)
 
