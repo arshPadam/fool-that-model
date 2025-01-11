@@ -10,7 +10,7 @@ Here is an example of an input image and the resulting adversarial image generat
 
 ![Input Image](https://github.com/arshPadam/fool-that-model/blob/master/images/input_images/input.jpg)
 
-**Adversarial Image:**Classified as papillon
+**Adversarial Image:** Classified as papillon
 
 ![Adversarial Image](https://github.com/arshPadam/fool-that-model/blob/master/images/adversarial_images/output.jpg)
 
